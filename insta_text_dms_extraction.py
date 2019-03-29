@@ -7,9 +7,6 @@ content = [x.strip() for x in content]
 
 d = json.loads(content[0])
 
-print len(d)
-
-
 def get_date(node):
 	time_stamp = node['created_at'][0:10]
 	return time_stamp
