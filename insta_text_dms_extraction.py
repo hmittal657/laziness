@@ -1,7 +1,8 @@
 import json
 
-with open("messages.json") as f:
+with open('messages.json', encoding='utf8', errors='ignore') as f:
 	content = f.readlines()
+
 
 content = [x.strip() for x in content] 
 
@@ -22,15 +23,15 @@ def get_index():
 			dates.add(get_date(node))
 			participants.add(node['sender'])
 
-		print "Index: ",x
-		print ""
-		print "Participants: "
-		print sorted(participants)
-		print ""
-		print "Between Dates: "
+		print("Index: ",x)
+		print("")
+		print("Participants: ")
+		print (sorted(participants))
+		print("")
+		print("Between Dates: ")
 		if len(dates) > 0:
-			print sorted(dates)[0],"to",sorted(dates)[-1]
-		print "------------------------------------------"
+			print(sorted(dates)[0],"to",sorted(dates)[-1])
+		print("------------------------------------------")
 
 
 def get_result(i):
@@ -43,13 +44,13 @@ def get_result(i):
 			prev_len = len(date_set)
 			date_set.add(get_date(node))
 			if len(date_set) > prev_len:
-				print get_date(node)
-			print node['sender']+" : "+node['text']
-		print "--"
+				print(get_date(node))
+			print(node['sender']+" : "+node['text'])
+		print("--")
 
 
 get_index()
 
-ind = raw_input("Enter your index: ")
+ind = input("Enter your index: ")
 
 get_result(int(ind))
