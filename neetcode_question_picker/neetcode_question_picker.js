@@ -1,7 +1,7 @@
 x = document.getElementsByTagName('tr');
 var unsolved = [];
 for (var i = 0; i < x.length ; i++) {
-  if (x[i].className != "completed") {
+  if (!x[i].classList.contains("completed")) {
   	var z =  x[i].children[2].childElementCount;
     if (z != 2) {
     	unsolved.push(x[i]);
